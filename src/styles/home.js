@@ -1,6 +1,7 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import Link from 'next/link';
 import Row from '@/components/Row';
+import Column from '@/components/Column';
 
 export const ContentArticles = styled.div`
   display: flex;
@@ -8,12 +9,6 @@ export const ContentArticles = styled.div`
   borderRadius: 10px;
   gap: 10px;
   align-items: start;
-`;
-
-export const Column = styled.div`
-display: flex;
-flex-direction: column;
-  ${({gap})=> gap && `gap: ${gap}` }
 `;
 
 export const ColumnArticle = styled.div`
@@ -88,12 +83,15 @@ export const InputStyle = styled.input`
 
 export const ButtonStyle = styled.button`
   border-radius: 10px;
+  justify-content: center;
   border: 2px solid #000;
   padding: 20px;
   color: #000;
   background-color: #37ccc7;
   width: 200px;
   font-size: 20px;
+  display: flex;
+  gap:12px;
   &:hover {
     cursor: pointer;
     background-color: #34e1eb;
@@ -113,4 +111,40 @@ export const RowStyle = styled(Row)`
 `;
 
 
+const spin = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+`;
+
+export const Loader = styled.div`
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #000000;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: ${spin} 2s linear infinite;
+`;
+
+export const ContentListStyle = styled.ul`
+  padding: 20px;
+  display:flex;
+  flex-direction: column;
+  gap: 12px;
+`;
+
+export const ListStyle = styled.li`
+  display: flex;
+  background-color: #e4e4ee63;
+  border-radius: 10px;
+  padding:12px;
+`;
+
+export const ContentComplements = styled(Column)`
+  padding: 12px;
+  gap:8px;
+`;
 
